@@ -10,18 +10,55 @@
   firebase.initializeApp(config);
   // And now, the rest of the code
   var database = firebase.database();
-  var choiceA = "";
-  var choiceB = "";
+  var playerOneChoice = "";
+  var playerTwoChoice = "";
 
   $('.choice').on('click', function(event){
-      console.log(this.id);
       if ($(event.target).hasClass('one')){
           console.log('player one chooses ' + this.value);
+          $('#oneReady').attr('weapon', this.value);
+          playerOneChoice = this.value;
       }
       else{
-          console.log('player two chooses ' + this.value);
-      }
-  } )
+          $('#twoReady').attr('weapon', this.value);
+          playerTwoChoice = this.value;
+          };  
+  } );
+
+
+$('.ready').on('click', function(event){
+  event.preventDefault();
+  if ($(this).attr('weapon')){
+    if($(this).attr('id') === 'oneReady'){
+      $('.oneWeapon').hide();
+    }
+    else{
+      $('.twoWeapon').hide();
+    }
+    $(this).text('Weapon Picked!');
+    $(this).attr('value', 'ready');
+    fight();
+  }
+  else{
+    alert('Make a selection!');
+  }
+});
+
+
+function fight(){
+  if ($('#oneReady').attr('value') === 'ready' && $('#twoReady').attr('value') === 'ready'){
+    database.ref("/choices").set({
+      playerone: playerOneChoice,
+      playertwo: playerTwoChoice,
+    });
+  }
+}
+var choicesRef = database.ref("/choices");
+
+choicesRef.on("value", function(snapshot){
+  $('#choices').html('<h2>Player One chooses ' + snapshot.val().playerone + ' vs Player Two chooses ' + snapshot.val().playertwo + '</h2>');
+})
+
  // database.ref("gameChoices").on("value", function(snapshot) {
       
   

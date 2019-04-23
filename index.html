@@ -7,26 +7,28 @@
     <title>Document</title>
     <link ref="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
-<body>
-<h1>
+<body>   
     <h1>Rock, Paper, Scissors</h1>
+    <div id="choices"> </div> 
     <div class="player1">
-        Rock, Paper, Scissors
-        <div class="buttonContainer">
-            <button id="oneRock" class="choice one" value="rock">Rock</button>
-            <button id="onePaper" class="choice one" value="paper">Paper</button>
-            <button id="oneScissors" class="choice one" value="scissors">Scissors</button>
-        </div>
+    Rock, Paper, Scissors
+    <div class="buttonContainer">
+        <button id="oneRock" class="choice one oneWeapon" value="rock">Rock</button>
+        <button id="onePaper" class="choice one oneWeapon" value="paper">Paper</button>
+        <button id="oneScissors" class="choice one oneWeapon" value="scissors">Scissors</button>
+        <button id="oneReady" class="ready two">Ready?</button>
+    </div>
     </div>
     <div class="player2">
-        Rock, Paper, Scissors
-        <div class="buttonContainer">
-            <button id="twoRock" class="choice two" value="rock">Rock</button>
-            <button id="twoPaper" class="choice two" value="paper">Paper</button>
-            <button id="twoScissors" class="choice two" value="scissors">Scissors</button>
-        </div>
+    Rock, Paper, Scissors
+    <div class="buttonContainer">
+        <button id="twoRock" class="choice two twoWeapon" value="rock">Rock</button>
+        <button id="twoPaper" class="choice two twoWeapon" value="paper">Paper</button>
+        <button id="twoScissors" class="choice two twoWeapon" value="scissors">Scissors</button>
+        <button id="twoReady" class="ready two">Ready?</button>
     </div>
-</h1>
+    </div>
+
 
 <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
 <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
