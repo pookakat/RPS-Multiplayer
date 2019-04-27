@@ -5,30 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link ref="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>   
     <h1>Rock, Paper, Scissors</h1>
-    <div id="choices"> </div> 
-    <div class="player1">
-    Rock, Paper, Scissors
-    <div class="buttonContainer">
-        <button id="oneRock" class="choice one oneWeapon" value="rock">Rock</button>
-        <button id="onePaper" class="choice one oneWeapon" value="paper">Paper</button>
-        <button id="oneScissors" class="choice one oneWeapon" value="scissors">Scissors</button>
-        <button id="oneReady" class="ready two">Ready?</button>
+    <button class="chair">Pick a Chair</button>
+    <div class="choices">
+        <div class="player">
+        Rock, Paper, Scissors
+        <div class="buttonContainer">
+            <button id="rock" class="choice one weapon" value="rock">Rock</button>
+            <button id="paper" class="choice one weapon" value="paper">Paper</button>
+            <button id="scissors" class="choice one weapon" value="scissors">Scissors</button>
+            <button id="ready">Ready?</button>
+        </div>
+        </div>
     </div>
-    </div>
-    <div class="player2">
-    Rock, Paper, Scissors
-    <div class="buttonContainer">
-        <button id="twoRock" class="choice two twoWeapon" value="rock">Rock</button>
-        <button id="twoPaper" class="choice two twoWeapon" value="paper">Paper</button>
-        <button id="twoScissors" class="choice two twoWeapon" value="scissors">Scissors</button>
-        <button id="twoReady" class="ready two">Ready?</button>
-    </div>
-    </div>
-
 
 <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
 <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>

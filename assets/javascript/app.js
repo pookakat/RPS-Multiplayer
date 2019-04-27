@@ -9,56 +9,63 @@
   };
   firebase.initializeApp(config);
   // And now, the rest of the code
-  var database = firebase.database();
-  var playerOneChoice = "";
-  var playerTwoChoice = "";
+  var dataRef = firebase.database();
+  var playerChoice = "";
+  var chair=['playerTwo', 'playerOne'];
+  var seats=2;
+  var ref;
+  var player='';
+  var lives = 5;
+
+  $('.chair').on('click', function(event){
+    event.preventDefault();
+    if (seats>0){
+      player = chair[seats-1];
+      seats--;
+      dataRef.ref().push({
+        seat: seats,
+      })
+      ref="/"+player;
+      ref=ref.toString();
+      console.log(ref);
+  }
+    else{
+      console.log('No more seats');
+      $('.choices').show();
+    }
+  });
 
   $('.choice').on('click', function(event){
-      if ($(event.target).hasClass('one')){
-          console.log('player one chooses ' + this.value);
-          $('#oneReady').attr('weapon', this.value);
-          playerOneChoice = this.value;
-      }
-      else{
-          $('#twoReady').attr('weapon', this.value);
-          playerTwoChoice = this.value;
-          };  
-  } );
+    console.log(event);
+    event.preventDefault();
+    weapon=this.value;
+    $('#ready').attr('weapon', weapon);
+    playerChoice = weapon;
+    console.log(playerChoice);
+    return false;
+  });
 
 
-$('.ready').on('click', function(event){
+$('#ready').on('click', function(event){
   event.preventDefault();
   if ($(this).attr('weapon')){
-    if($(this).attr('id') === 'oneReady'){
-      $('.oneWeapon').hide();
+      $('.weapon').hide();
+      $(this).text('Weapon Picked!');
+      $(this).attr('value', 'ready');
+      ready();
+     // fight();
     }
-    else{
-      $('.twoWeapon').hide();
-    }
-    $(this).text('Weapon Picked!');
-    $(this).attr('value', 'ready');
-    fight();
-  }
   else{
     alert('Make a selection!');
   }
 });
 
+function ready(){
+  dataRef.ref(ref).push({
 
-function fight(){
-  if ($('#oneReady').attr('value') === 'ready' && $('#twoReady').attr('value') === 'ready'){
-    database.ref("/choices").set({
-      playerone: playerOneChoice,
-      playertwo: playerTwoChoice,
-    });
-  }
-}
-var choicesRef = database.ref("/choices");
-
-choicesRef.on("value", function(snapshot){
-  $('#choices').html('<h2>Player One chooses ' + snapshot.val().playerone + ' vs Player Two chooses ' + snapshot.val().playertwo + '</h2>');
-})
-
- // database.ref("gameChoices").on("value", function(snapshot) {
-      
-  
+    seat: player,
+    weapon: playerChoice,
+    ready: 'ready',
+    lives: lives,
+  });
+};
