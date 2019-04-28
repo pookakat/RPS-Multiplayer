@@ -1,6 +1,16 @@
 body{
-    background-color: blue;
+    background-color: black;
 }
 .choices{
+    display: none;
+}
+#title{
+    margin: auto;
+    text-align: center;
+}
+h1{
+    text-align: center;
+}
+#weaponsPics{
     display: none;
 }

@@ -5,11 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>   
-    <h1>Rock, Paper, Scissors</h1>
-    <button class="chair">Pick a Chair</button>
+    <div class="row">
+        <div id ="title" class="col-md-8">
+            <h1 class="text-white">Rock, Paper, Scissors</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="container">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="What is your name?" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <button class="chair btn-warning">Pull up a Chair</button>
+            </div>
+        </div>
+    </div>
     <div class="choices">
         <div class="player">
         Rock, Paper, Scissors
@@ -19,6 +31,43 @@
             <button id="scissors" class="choice one weapon" value="scissors">Scissors</button>
             <button id="ready">Ready?</button>
         </div>
+        </div>
+    </div>
+    <div id="weaponsPics">
+        <div class="d-flex flex-row justify-content-around justify-content-center">
+            <div class="p-2 card" style="width: 18rem;">
+                <img src="assets/images/none.jpg" class="playerOne weaponpic card-img-top" alt="player one's weapon">
+                <div class="card-body">
+                    <p class="playerOne card-text">None Yet</p>
+                </div>
+            </div>
+            <div class="p-2 card" style="width: 18rem;">
+                <div class="playerTwo weaponpic card-img-top"></div>
+                <div class="card-body">
+                    <p class="playerTwo card-text"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="container">
+            <div class="jumbotron jumbotron-fluid bg-dark">
+                <div id="chatroom" class="container bg-dark text-warning">
+                    <h1>~~Them's Fighting Words~~</h1>
+                    <div id="chat"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="container">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control username" placeholder="What is your name?" aria-label="Chat with your opponent" aria-describedby="basic-addon2">
+                        <button class="chair btn-warning">Chat</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <button type="button" class="btn btn-warning btn-lg btn-block">Taunt</button>
+            </div>
         </div>
     </div>
 
